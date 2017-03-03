@@ -25,6 +25,7 @@ do {
             $response = Invoke-WebRequest -Uri $url
             #content display the success or error message
             Write-Host $response.Content
+            Write-EventLog -LogName Application -Source "dtdns_update" -EntryType Information -EventID 1 -Message $response.Content
             $doRequest = $false
         }
         Else {
